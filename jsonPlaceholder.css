@@ -1,0 +1,12 @@
+table {
+  width: 80%;
+  margin: 20% auto;
+  border: 2px solid black;
+  border-collapse: collapse;
+  text-align: center;
+}
+table tr th,
+table tr td {
+  padding: 10px;
+  border: 2px solid black;
+}
