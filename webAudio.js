@@ -1,30 +1,27 @@
 let audioContext;
 let samples;
-const startContextButton = document.querySelector(".start");
 const playNewWaveKit = document.querySelector(".play-new-wave-kit");
 const playSynthOrgan = document.querySelector(".play-synth-organ");
 
 const samplePaths = ["./audio/new-wave-kit.ogg", "./audio/synth-organ.ogg"];
 
-startContextButton.addEventListener("click", () => {
-  audioContext = new AudioContext();
-  console.log("Audio Context Started");
+audioContext = new AudioContext();
+console.log("Audio Context Started");
 
-  setupSamples(samplePaths).then((response) => {
-    samples = response;
-    console.log(samples);
-    playNewWaveKit.addEventListener("click", () => {
-      audioContext.close();
-      audioContext = new AudioContext();
-      const playing = playSample(samples[0], 0);
-      console.log(playing);
-    });
-    playSynthOrgan.addEventListener("click", () => {
-      audioContext.close();
-      audioContext = new AudioContext();
-      const playing = playSample(samples[1], 0);
-      console.log(playing);
-    });
+setupSamples(samplePaths).then((response) => {
+  samples = response;
+  console.log(samples);
+  playNewWaveKit.addEventListener("click", () => {
+    audioContext.close();
+    audioContext = new AudioContext();
+    const playing = playSample(samples[0], 0);
+    console.log(playing);
+  });
+  playSynthOrgan.addEventListener("click", () => {
+    audioContext.close();
+    audioContext = new AudioContext();
+    const playing = playSample(samples[1], 0);
+    console.log(playing);
   });
 });
 
